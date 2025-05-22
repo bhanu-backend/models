@@ -1,3 +1,15 @@
 from django.shortcuts import render
-
-# Create your views here.
+from django.http import HttpResponse,HttpResponseRedirect
+from .models import Employee
+def home(request):
+    if request.method == "POST":
+        nm = request.POST.get('name')
+        age = request.POST.get('age')
+        email = request.POST.get('email')
+        designation = request.POST.get('desig')
+        print(nm,age,email,designation)
+        print(request.POST)
+        Employee.objects.create(name=nm,email=email,age=age,designation=designation)
+        #return HttpResponse("data submitted")
+        return HttpResponseRedirect('admin/')
+    return render(request,'app1/index.html')

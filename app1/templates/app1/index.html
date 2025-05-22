@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Employee Information</h2>
+
+<form action="{% url 'home' %}" method="POST">
+     {% csrf_token %}
+  <label for="fname">Name:</label><br>
+  <input type="text"  name="name"><br>
+  <label for="fname">Age:</label><br>
+  <input type="text"  name="age"><br>
+    <label for="fname">Designation:</label><br>
+  <input type="text"  name="desig"><br>
+  <label for="lname">Email:</label><br>
+  <input type="text" name="email"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+
+</body>
+</html>
+
