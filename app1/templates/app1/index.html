@@ -3,7 +3,7 @@
 <body>
 
 <h2>Employee Information</h2>
-
+<div>
 <form action="{% url 'home' %}" method="POST">
      {% csrf_token %}
   <label for="fname">Name:</label><br>
@@ -15,7 +15,75 @@
   <label for="lname">Email:</label><br>
   <input type="text" name="email"><br><br>
   <input type="submit" value="Submit">
-</form> 
+</form>
+</div>
+
+<br><br>
+<div>
+  
+  <!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+
+{% if data %}
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Age</th>
+    <th>Designation</th>
+     <th>Update</th>
+       <th>Delete</th>
+       
+  </tr>
+ 
+    {% for i in data %}
+ <tr>
+    <td>{{i.name}}</td>
+    <td>{{i.email}}</td>
+    <td>{{i.age}}</td>
+    <td>{{i.designation}}</td>
+    <td><form action="" method="post">
+         {% csrf_token %}
+      <input type="submit" value="Update">
+    </form></td>
+    <td><a href="{% url 'delete' i.id %}">Delete</a></td>
+    
+</tr>
+
+    {% endfor %}
+   
+  
+  
+</table>
+
+{% endif %}
+
+</body>
+</html>
+
+
+</div>
 
 
 </body>
