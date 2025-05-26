@@ -1,0 +1,29 @@
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Update Employee Information</h2>
+<div>
+<form action="{% url 'update' data.id %}" method="POST">
+     {% csrf_token %}
+  <label for="fname">Name:</label><br>
+  <input type="text"  name="name" value="{{ data.name }}"><br>
+  <label for="fname">Age:</label><br>
+  <input type="text"  name="age" value="{{ data.age }}"><br>
+    <label for="fname">Designation:</label><br>
+  <input type="text"  name="desig"  value="{{ data.designation }}"><br>
+  <label for="lname">Email:</label><br>
+  <input type="text" name="email" value="{{ data.email }}"><br><br>
+  <input type="submit" value="Submit">
+</form>
+</div>
+
+<br><br>
+<div>
+</body>
+</html>
+
+
+

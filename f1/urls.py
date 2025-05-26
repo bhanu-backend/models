@@ -5,5 +5,6 @@ urlpatterns = [
 
  
     path('f1/',views.home),
+    path('s1/',views.set_cokkies),
 
 ]

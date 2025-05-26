@@ -63,8 +63,8 @@ tr:nth-child(even) {
     <td>{{i.email}}</td>
     <td>{{i.age}}</td>
     <td>{{i.designation}}</td>
-    <td><form action="" method="post">
-         {% csrf_token %}
+    <td><form action="{% url 'update' i.id %}" method="get">
+        
       <input type="submit" value="Update">
     </form></td>
     <td><a href="{% url 'delete' i.id %}">Delete</a></td>

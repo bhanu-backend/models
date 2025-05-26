@@ -12,3 +12,9 @@ def home(req):
 
     form = StudentModelForm()
     return render(req,"f1/new_index.html",{'forms':form})
+
+
+
+def set_cokkies(req):
+    req.session['cart'] = req.session['cart'] + 1
+    return HttpResponse('subi')
